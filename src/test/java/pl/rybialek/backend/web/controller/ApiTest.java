@@ -4,13 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 public class ApiTest {
 
     private MockMvc mockMvc;
@@ -19,17 +19,14 @@ public class ApiTest {
     private Api api;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(api).build();
     }
 
     @Test
-    public void shouldSuccessfullyResponseFromHello() throws Exception {
-        // given
-
+        public void shouldSuccessfullyResponseFromHello() throws Exception {
         // when & then
         mockMvc.perform(MockMvcRequestBuilders.get("/hello1"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string("Hello All!"));
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

@@ -1,4 +1,4 @@
-package pl.rybialek.backend.security;
+package pl.rybialek.backend.config;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;

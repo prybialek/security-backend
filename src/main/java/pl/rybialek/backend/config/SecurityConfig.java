@@ -1,4 +1,4 @@
-package pl.rybialek.backend.security;
+package pl.rybialek.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().permitAll();
 
+        httpSecurity.exceptionHandling().accessDeniedPage("/accessDenied");
         httpSecurity.csrf().disable();
         httpSecurity.headers().frameOptions().disable();
     }

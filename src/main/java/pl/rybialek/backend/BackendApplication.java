@@ -13,5 +13,10 @@ public class BackendApplication {
 	// 2. Wlaczyc HTTP Basic dla API Userow.
 	// 3. Rzucic wyjatek gdy nie ma usera uzywajac AOP. (Rozdział AOP z książki)
 	// 4. Zaimplementować pozostałe metody z interfejsu UserDetails.
+
+
+	// Własna strona logownaia -> książka Spring w Akcji V
+	// Walidacja formularzy
+	// Testy MVC
 }
 
