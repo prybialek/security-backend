@@ -2,10 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles.css}"  />
     <title>Home</title>
 </head>
+
 <body>
-    <h1>Spring MVC + Thymeleaf</h1>
-    <p th:text="${message}"></p>
+    <h1>Welcome to the HOME PAGE !</h1>
+
+    <table class="userList">
+        <thead>
+        <tr>
+            <th> User </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.username}"></td>
+        </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>

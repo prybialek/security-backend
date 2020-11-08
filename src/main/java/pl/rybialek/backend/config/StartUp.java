@@ -28,6 +28,6 @@ public class StartUp {
     public void startUp() {
         userService.save(new User("pawel.rybialek", passwordEncoder.encode("Pass.123"), new HashSet<>(Arrays.asList(roleRepo.createRoleIfNotFound("ROLE_ADMIN")))));
         userService.save(new User("mariola.motowidlo", passwordEncoder.encode("Pass.123"),  new HashSet<>(Arrays.asList(roleRepo.createRoleIfNotFound("ROLE_USER")))));
-        userService.save(new User("nietoperz.szafa", passwordEncoder.encode("Pass.123"),  new HashSet<>(Arrays.asList(roleRepo.createRoleIfNotFound("ROLE_ADMIN"), roleRepo.createRoleIfNotFound("ROLE_USER")))));
+        userService.save(new User("nietoperz.szpital", passwordEncoder.encode("Pass.123"),  new HashSet<>(Arrays.asList(roleRepo.createRoleIfNotFound("ROLE_ADMIN"), roleRepo.createRoleIfNotFound("ROLE_USER")))));
     }
 }

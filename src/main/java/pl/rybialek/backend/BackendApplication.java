@@ -18,5 +18,8 @@ public class BackendApplication {
 	// Własna strona logownaia -> książka Spring w Akcji V
 	// Walidacja formularzy
 	// Testy MVC
+	// Obsluga wyjatkow w aplikacji
+	// Uruchomienie aplikacji na serwerze Tomcat
+	// Połączyć z Angularem
 }
 
