@@ -15,11 +15,11 @@ public class BackendApplication {
 	// 4. Zaimplementować pozostałe metody z interfejsu UserDetails.
 
 
-	// Własna strona logownaia -> książka Spring w Akcji V
 	// Walidacja formularzy
 	// Testy MVC
 	// Obsluga wyjatkow w aplikacji
+	// Własna strona logownaia -> książka Spring w Akcji V
+	// Przekierowanie do kolejnego formularza w ramach sesji
 	// Uruchomienie aplikacji na serwerze Tomcat
-	// Połączyć z Angularem
 }
 

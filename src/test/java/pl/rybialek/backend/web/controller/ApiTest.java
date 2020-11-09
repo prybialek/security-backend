@@ -37,7 +37,7 @@ public class ApiTest {
         Mockito.when(userService.findAll()).thenReturn(Collections.emptyList());
 
         // when & then
-        mockMvc.perform(MockMvcRequestBuilders.get("/hello1"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/home"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("home"))
                 .andExpect(MockMvcResultMatchers.model().size(1))

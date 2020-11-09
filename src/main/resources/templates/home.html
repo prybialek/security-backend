@@ -2,25 +2,49 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/styles.css}"  />
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
     <title>Home</title>
 </head>
 
 <body>
-    <h1>Welcome to the HOME PAGE !</h1>
+<h1>Welcome to the HOME PAGE !</h1>
 
-    <table class="userList">
-        <thead>
-        <tr>
-            <th> User </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="user : ${users}">
-            <td th:text="${user.username}"></td>
-        </tr>
-        </tbody>
-    </table>
+<table class="userList">
+    <thead>
+    <tr>
+        <th>User</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}"></td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<br/>
+<br/>
+
+<form method="POST" th:action="@{/create}" id="createUser">
+
+    <h3>Create user:</h3>
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username"/><br/>
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password"/><br/>
+
+    <h3>Select roles:</h3>
+    <label>
+        <input name="roles" type="checkbox" th:value="USER"/>
+    </label>
+    <span th:text="USER"></span>
+    <label>
+        <input name="roles" type="checkbox" th:value="ADMIN"/>
+    </label>
+    <span th:text="ADMIN"></span><br/><br/>
+
+    <input type="submit" value="Create"/>
+</form>
 
 </body>
 </html>
