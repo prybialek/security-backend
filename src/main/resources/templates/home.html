@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/styles.css}"/>
@@ -25,13 +26,15 @@
 <br/>
 <br/>
 
-<form method="POST" th:action="@{/create}" id="createUser">
+<form method="POST" th:action="@{/home}" th:object="${user}">
 
     <h3>Create user:</h3>
     <label for="username">Username: </label>
-    <input type="text" name="username" id="username"/><br/>
+    <input type="text" name="username" id="username"/>
+    <span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Please fill username.</span><br/>
     <label for="password">Password: </label>
-    <input type="password" name="password" id="password"/><br/>
+    <input type="password" name="password" id="password"/>
+    <span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Please fill password.</span><br/>
 
     <h3>Select roles:</h3>
     <label>
@@ -41,7 +44,8 @@
     <label>
         <input name="roles" type="checkbox" th:value="ADMIN"/>
     </label>
-    <span th:text="ADMIN"></span><br/><br/>
+    <span th:text="ADMIN"></span><br/>
+    <span class="validationError" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}">Please select at least 1 role.</span><br/>
 
     <input type="submit" value="Create"/>
 </form>

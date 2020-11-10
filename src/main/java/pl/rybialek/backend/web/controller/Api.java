@@ -4,10 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.rybialek.backend.service.UserService;
 import pl.rybialek.backend.web.dto.UserDTO;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class Api {
@@ -20,6 +25,11 @@ public class Api {
         this.userService = userService;
     }
 
+    @ModelAttribute("users")
+    public List<UserDTO> registerContact() {
+        return userService.findAll();
+    }
+
     @GetMapping
     public String welcome() {
         return "redirect:/home";
@@ -27,13 +37,16 @@ public class Api {
 
     @GetMapping("/home")
     public String homePage(Model model) {
-        model.addAttribute("users", userService.findAll());
+        model.addAttribute("user", new UserDTO());
         return "home";
     }
 
-    @PostMapping("/create")
-    public String createUser(UserDTO userDTO) {
-        log.info("Sent username: {}, password: {}, roles: {}.", userDTO.getUsername(), userDTO.getPassword(), userDTO.getRoles());
+    @PostMapping("/home")
+    public String createUser(@Valid @ModelAttribute("user") UserDTO user, Errors errors) {
+        if (errors.hasErrors()) {
+            return "home";
+        }
+        log.info("Sent username: {}", user);
         return "redirect:/home";
     }
 

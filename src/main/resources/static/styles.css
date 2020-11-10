@@ -30,3 +30,6 @@ table.userList thead th {
 table.userList thead th:first-child {
     border-left: none;
 }
+span.validationError {
+    color: red;
+}

@@ -31,7 +31,7 @@ public class ApiTest {
         mockMvc = MockMvcBuilders.standaloneSetup(api).build();
     }
 
-    @Test
+    @Test //TODO: FIX ME
     public void shouldSuccessfullyResponseFromHello() throws Exception {
         // given
         Mockito.when(userService.findAll()).thenReturn(Collections.emptyList());
